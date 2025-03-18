@@ -60,3 +60,18 @@ function getAllCountries()
     $query = 'SELECT * FROM Country;';
     return $pdo->query($query)->fetchAll();
 }
+#Dans votre ficher manager-db.php, 
+#vous allez ajouter une fonction getContinent
+function getContinent()
+{
+    global $pdo;
+    $query = 'SELECT DISTINCT continent FROM Country;';
+    return $pdo->query($query)->fetchAll();
+}
+
+function getPays()
+{
+global $pdo;
+$query = 'SELECT DISTINCT name FROM Country;';
+return $pdo->query($query)->fetchAll();
+}
