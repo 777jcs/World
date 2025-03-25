@@ -17,20 +17,19 @@
 
 <?php
 require_once 'inc/manager-db.php';
-if (isset($_GET['name']) && !empty($_GET['name']) ){
-$continent = ($_GET['name']);
-$desPays = getCountriesByContinent($continent);
+if (isset($_GET['id']) && !empty($_GET['id']) ){
+$id = ($_GET['id']);
+$pays = getPays($id);
 }
 else{
-$continent = "Monde";
-$desPays = getAllCountries();
+echo " aucun pays";
 }
 ?>
 
 <main role="main" class="flex-shrink-0">
 
     <div class="container">
-        <h1>Les pays <?= $continent; ?></h1>
+        <h1>Le pays :  <?= $pays->Name; ?></h1>
         <div>
         <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
@@ -45,15 +44,13 @@ $desPays = getAllCountries();
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-       // $desPays est un tableau dont les éléments sont des objets représentant
-       // des caractéristiques d'un pays (en relation avec les colonnes de la table Country)
-          foreach($desPays as $pays) : ?>
+               
                 <tr>
                 <td> <?php $source= "images/flag/" .strtolower($pays->Code2).".png"?>
                 <img src=<?= $source; ?> height="45" width="60" ></td>
+
                 
-                    <td> <a href=details.php?id=<?= $pays->id ?> ><?php echo $pays->Name ?></a></td>
+                    <td> <?php echo $pays->Name ?></td>
                     <td> <?php echo $pays->Population ?></td>
                     <td> <?php echo $pays->HeadOfState ?></td>
                     <td> <?php echo $pays->SurfaceArea ?></td>
@@ -65,7 +62,7 @@ $desPays = getAllCountries();
                     } 
                     ?></td>
                 </tr>
-                <?php endforeach; ?>
+               
                 </tbody>
                 
             </table>

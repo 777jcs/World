@@ -83,6 +83,19 @@ $lesPays = getAllCountries();
                             <?php endforeach ; ?>
                         </div>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Pays</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <?php foreach($lesPays as $lepays) : ?>
+                            <a class="dropdown-item"
+                                href="details.php?id=<?= $lepays->id ; ?>"><?= $lepays->Name; ?>
+                            </a>                           
+                            <?php endforeach ; ?>
+                        </div>
+                    </li>
+
+                    </ul>                                                        
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="login">Login</a>
@@ -96,17 +109,7 @@ $lesPays = getAllCountries();
                             </a>
                         </li>
                     </ul>                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Pays</a>
-                            div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <?php foreach($lespays as $pays) : ?>
-                            <a class="dropdown-item"
-                                href="index2.php?name=<?= $pays->id ; ?>"><?= $pays->name; ?>
-                            </a>
-                            <?php endforeach ; ?>
-                        </div>
-                    </li>
+                    
                             
                             
 
