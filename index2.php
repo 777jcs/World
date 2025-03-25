@@ -32,24 +32,42 @@ $desPays = getAllCountries();
     <div class="container">
         <h1>Les pays <?= $continent; ?></h1>
         <div>
-            <table class="table">
-                <tr>
-                    <th>Nom</th>
-                    <th>Population</th>
-                    <th>Président</th>
-                    <th>surface</th>
-                </tr>
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                    <th>Drapeau</th>
+                        <th>Nom</th>
+                        <th>Population</th>
+                        <th>Président</th>
+                        <th>surface</th>
+                        <th>capitale</th>
+
+                    </tr>
+                </thead>
+                <tbody>
                 <?php
        // $desPays est un tableau dont les éléments sont des objets représentant
        // des caractéristiques d'un pays (en relation avec les colonnes de la table Country)
-          foreach($desPays as $pays) {?>
+          foreach($desPays as $pays) : ?>
                 <tr>
+                <td> <?php $source= "images/flag/" .strtolower($pays->Code2).".png"?>
+                <img src=<?= $source; ?> height="45" width="60" ></td>
+                
                     <td> <?php echo $pays->Name ?></td>
                     <td> <?php echo $pays->Population ?></td>
                     <td> <?php echo $pays->HeadOfState ?></td>
                     <td> <?php echo $pays->SurfaceArea ?></td>
+                    <td> <?php $capitale = getCapital($pays->Capital);
+                    if($capitale){
+                        echo $capitale->Name;
+                    } else{
+                        echo '-----';
+                    } 
+                    ?></td>
                 </tr>
-                <?php }?>
+                <?php endforeach; ?>
+                </tbody>
+                
             </table>
         </div>
 
