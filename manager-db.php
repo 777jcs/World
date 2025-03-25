@@ -69,9 +69,25 @@ function getContinent()
     return $pdo->query($query)->fetchAll();
 }
 
-function getPays()
+function getCapital ($idpays)
 {
-global $pdo;
-$query = 'SELECT DISTINCT name FROM Country;';
-return $pdo->query($query)->fetchAll();
+    global $pdo;
+    $query = 'SELECT Name FROM City WHERE id = :id ;';
+    $prep = $pdo->prepare($query);
+    $prep ->bindValue(':id' , $idpays, PDO :: PARAM_STR);
+    $prep->execute();
+    // var_dump($prep);  pour du debug
+    // var_dump($continent);
+
+    // on retourne un tableau d'objets (car spécifié dans connect-db.php)
+    return $prep->fetch();
+}
+function getPays($id)
+{
+  global $pdo;
+  $query = 'SELECT * FROM Country WHERE id = :id;';
+  $prep = $pdo->prepare($query);
+  $prep->bindValue(':id', $id, PDO::PARAM_STR);
+  $prep->execute();
+  return $prep->fetch();
 }
