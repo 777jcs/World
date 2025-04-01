@@ -35,7 +35,7 @@
             font-size: 3.5rem;
         }
 
-        dropdown-menu {
+        .dropdown-menu {
             max-height: 400px;
             overflow-y: auto;
         }
@@ -94,8 +94,8 @@ $lesPays = getAllCountries();
                             <?php endforeach ; ?>
                         </div>
                     </li>
-
-                    </ul>                                                        
+                    </ul>
+                                                                            
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="login">Login</a>
