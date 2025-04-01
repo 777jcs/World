@@ -91,3 +91,24 @@ function getPays($id)
   $prep->execute();
   return $prep->fetch();
 }
+
+function getPaysByName($name)
+{
+    global $pdo;
+    $query = "SELECT * FROM Country WHERE Name = '$name';";
+    return $pdo->query($query)->fetch();
+}
+
+/**
+ * Obtenir la liste des pays triés par population (du plus peuplé au moins peuplé)
+ *
+ * @return array Liste des pays triés par population
+ */
+function getPaysParPopulation()
+{
+    global $pdo;
+    // Tri des pays par leur population (ordre décroissant)
+    $query = 'SELECT * FROM Country ORDER BY Population DESC;';
+    return $pdo->query($query)->fetchAll();
+}
+
