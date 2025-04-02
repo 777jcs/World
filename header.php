@@ -158,132 +158,7 @@ h1 {
     color: #007bff; /* Couleur bleue pour les titres */
 }
 
-            /* Réinitialisation de certaines propriétés par défaut du navigateur */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Définition de la police principale pour toute la page */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
-    margin: 20px;
-}
-
-/* En-tête */
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-header h1 {
-    font-size: 36px;
-    color: #007bff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 18px;
-    color: #555;
-}
-
-/* Tableau */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 40px;
-}
-
-/* En-tête du tableau */
-th {
-    background-color: #007bff;
-    color: #fff;
-    text-align: left;
-    padding: 12px;
-    font-size: 16px;
-}
-
-/* Corps du tableau */
-td {
-    background-color: #fff;
-    color: #333;
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-/* Ajout de survol pour les lignes du tableau */
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-/* Formatage des valeurs numériques avec un style élégant */
-td, th {
-    font-size: 14px;
-    text-align: right;
-}
-
-td:first-child, th:first-child {
-    text-align: left;
-}
-
-/* Gestion des valeurs manquantes : N/A */
-td:empty {
-    color: #999;
-    font-style: italic;
-}
-
-/* Style pour les boutons et actions (si ajoutées) */
-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Styles pour les messages d'erreur */
-.ui.red.inverted.segment {
-    background-color: #ff4d4d;
-    color: #fff;
-    padding: 20px;
-    border-radius: 4px;
-    margin-top: 20px;
-}
-
-.ui.red.inverted.segment p {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* Style des liens */
-a {
-    text-decoration: none;
-    color: #007bff;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #0056b3;
-}
-
-/* Ajout de marge et d'alignement pour les sections */
-section {
-    margin-bottom: 40px;
-}
-
+            
 
     .bd-placeholder-img {
         font-size: 1.125rem;
@@ -316,15 +191,11 @@ section {
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
+
                     <li class="nav-item active">
                         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="PaysParPopulation.php">Pays triés par Population</a> <!-- Nouveau lien -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
+                    </li>       
+                
                     <?php
 require_once 'inc/manager-db.php';
 $lesContinents = getContinent() ;
@@ -355,14 +226,13 @@ $lesPays = getAllCountries();
                         </div>
                     </li>
                     </ul>
+
+                    <li class="nav-item">
+                    <a class="nav-link" href="PaysParPopulation.php">Statistique</a> <!-- Nouveau lien -->
+                    </li>
                                                                             
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register">Register</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link " href="todo-projet.php">
                                 Présentation-Atelier-de-Prof-SLAM

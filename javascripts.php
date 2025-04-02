@@ -35,7 +35,7 @@ $('.map').maphilight({fade: false});
 $("#projmap area").click( function () {
 var pays = $(this).attr('title');
 var lien = "detailsPays.php?name="+pays;
-alert(lien)
+//alert(lien)
 $(this).attr("href",lien);
 });
 </script>
